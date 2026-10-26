@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net11.0-windows</TargetFramework>
+    <RootNamespace>PaintDotNet.FileTypes.Samples</RootNamespace>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    <!-- Set up AssemblyFileVersion so the Build and Revision fields are auto-generated based on the
+         local time. This removes the need for you to manually update the version every time you
+         release a new update for your plugin. The FileVersion element doesn't accept wildcards, so
+         it is the more static "product" version. -->
+    <FileVersion>5.2</FileVersion>
+    <AssemblyVersion>$(FileVersion).*</AssemblyVersion>
+    <!-- Deterministic build is not allowed when using a wildcard version. -->
+    <Deterministic>False</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Use *-* for the plugin SDK reference so that the latest version is always used. This makes sure 
+         you always have the latest APIs available, and that deprecated APIs are not accidentally used. -->
+    <PackageReference Include="Paint.NET.Plugin.SDK" Version="*-*" />
+  </ItemGroup>
+
+</Project>
